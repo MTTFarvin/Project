@@ -12,6 +12,7 @@ namespace Project
     public partial class Form1 : Form
     {
         private ComponentResourceManager resManager;
+        public static string LoggedUsername;
 
         public Form1()
         {
@@ -87,16 +88,19 @@ namespace Project
         // LOGIN BUTTON
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Data Source=COMPUTERADMINIS;Initial Catalog=SYTEM_POS;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "select * from Login where Username='" + txtUsername.Text + "' and Password='" + txtPassword.Text + "'";
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
+            SqlConnection con = new SqlConnection("Data Source=COMPUTERADMINIS;Initial Catalog=SYTEM_POS;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
 
-            if (ds.Tables[0].Rows.Count != 0)
+            SqlCommand cmd = new SqlCommand(
+                "SELECT * FROM Login WHERE Username = @username AND Password = @password", con);
+
+            cmd.Parameters.AddWithValue("@username", txtUsername.Text);
+            cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            if (dt.Rows.Count > 0)
             {
                 this.Hide();
                 Form3 dsa = new Form3();
@@ -104,15 +108,13 @@ namespace Project
             }
             else
             {
-
-                MessageBox.Show("Wrong Username OR Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            
-        }
-            
+                MessageBox.Show("Wrong Username OR Password", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 txtUsername.Clear();
                 txtPassword.Clear();
-                txtPassword.Focus();
+                txtUsername.Focus();
+            }
             }
         
 
