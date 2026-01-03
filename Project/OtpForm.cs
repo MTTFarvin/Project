@@ -22,6 +22,7 @@ namespace Project
 
         string conStr =
         "Data Source=COMPUTERADMINIS;Initial Catalog=SYTEM_POS;Integrated Security=True;Encrypt=False;TrustServerCertificate=True";
+        bool otpVerified = false;
 
         public OtpForm(string email)
         {
@@ -138,6 +139,9 @@ namespace Project
 
             if (count == 1)
             {
+                otpVerified = true;     // ✅ OTP success mark
+                otpTimer.Stop();
+
                 NewPassword np = new NewPassword(userEmail);
                 np.Show();
                 this.Hide();

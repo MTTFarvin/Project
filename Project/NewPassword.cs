@@ -25,6 +25,9 @@ namespace Project
             txtNewPassword.UseSystemPasswordChar = true;
             txtConfirmPassword.UseSystemPasswordChar = true;
 
+            lblNewPassError.Visible = false;
+            lblConfirmPassError.Visible = false;
+
         }
 
         private void btnUpdateMyPassword_Click(object sender, EventArgs e)
@@ -32,24 +35,37 @@ namespace Project
             string newPass = txtNewPassword.Text.Trim();
             string confirmPass = txtConfirmPassword.Text.Trim();
 
+            // Reset error labels
+            lblNewPassError.Visible = false;
+            lblConfirmPassError.Visible = false;
+
             // 1️⃣ Empty check
-            if (newPass == "" || confirmPass == "") 
+            if (string.IsNullOrEmpty(newPass))
             {
-                MessageBox.Show("Password fields cannot be empty");
+                lblNewPassError.Text = "New password cannot be empty";
+                lblNewPassError.Visible = true;
+                return;
+            }
+            if (string.IsNullOrEmpty(confirmPass))
+            {
+                lblConfirmPassError.Text = "Confirm password cannot be empty";
+                lblConfirmPassError.Visible = true;
                 return;
             }
 
             // 2️⃣ Length check
             if (newPass.Length < 8)
             {
-                MessageBox.Show("Password must be at least 8 characters");
+                lblNewPassError.Text = "Password must be at least 8 characters";
+                lblNewPassError.Visible = true;
                 return;
             }
 
             // 3️⃣ Match check
             if (newPass != confirmPass)
             {
-                MessageBox.Show("New Password and Confirm Password do not match");
+                lblConfirmPassError.Text = "Passwords do not match";
+                lblConfirmPassError.Visible = true;
                 return;
             }
 
@@ -57,33 +73,32 @@ namespace Project
             {
                 con.Open();
 
-                // 4️⃣ Old password same ah irukka check
+                // 4️⃣ Check old password
                 SqlCommand checkCmd = new SqlCommand(
-                    "SELECT Password FROM Users WHERE Email=@email", con);
-                checkCmd.Parameters.AddWithValue("@email", email);
+                    "SELECT Password FROM Login WHERE Username=@Username", con);
+                checkCmd.Parameters.AddWithValue("@Username", email);
 
                 object oldPass = checkCmd.ExecuteScalar();
 
                 if (oldPass != null && oldPass.ToString() == newPass)
                 {
-                    MessageBox.Show("New password must be different from old password");
+                    lblNewPassError.Text = "New password must be different from old password";
+                    lblNewPassError.Visible = true;
                     return;
                 }
 
                 // 5️⃣ Update password
                 SqlCommand updateCmd = new SqlCommand(
-                    "UPDATE Users SET Password=@pass WHERE Email=@email", con);
+                    "UPDATE Login SET Password=@pass WHERE Username=@Username", con);
                 updateCmd.Parameters.AddWithValue("@pass", newPass);
-                updateCmd.Parameters.AddWithValue("@email", email);
+                updateCmd.Parameters.AddWithValue("@Username", email);
 
                 updateCmd.ExecuteNonQuery();
 
-                MessageBox.Show("Password updated successfully");
-
-                // 6️⃣ Login form open
+                // ✅ Open login form immediately without any message
                 Form1 login = new Form1();
                 login.Show();
-                this.Hide();
+                this.Close(); // close current form
             }
             catch (Exception ex)
             {
@@ -93,8 +108,8 @@ namespace Project
             {
                 con.Close();
             }
+            }
 
-        }  
 
         private void txtConfirmpassword_TextChanged(object sender, EventArgs e)
         {
@@ -119,6 +134,11 @@ namespace Project
         private void btnEyeNew_Click(object sender, EventArgs e)
         {
             txtNewPassword.UseSystemPasswordChar = !txtNewPassword.UseSystemPasswordChar;
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

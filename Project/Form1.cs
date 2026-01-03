@@ -153,6 +153,16 @@ namespace Project
             fp.Show();
             this.Hide(); // login form hide
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

@@ -42,15 +42,20 @@
             this.txtNewPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnUpdateMyPassword = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.White;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.White;
-            this.guna2Panel1.BorderRadius = 20;
-            this.guna2Panel1.BorderThickness = 2;
+            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.guna2Panel1.BorderRadius = 10;
+            this.guna2Panel1.BorderThickness = 1;
             this.guna2Panel1.Controls.Add(this.btnEyeConfirm);
             this.guna2Panel1.Controls.Add(this.btnEyeNew);
             this.guna2Panel1.Controls.Add(this.lblConfirmPassError);
@@ -62,12 +67,18 @@
             this.guna2Panel1.Controls.Add(this.txtNewPassword);
             this.guna2Panel1.Controls.Add(this.guna2HtmlLabel1);
             this.guna2Panel1.Controls.Add(this.btnUpdateMyPassword);
+            this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.ForeColor = System.Drawing.Color.White;
-            this.guna2Panel1.Location = new System.Drawing.Point(337, 193);
+            this.guna2Panel1.Location = new System.Drawing.Point(383, 271);
             this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.ShadowDecoration.BorderRadius = 10;
+            this.guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.LightGray;
+            this.guna2Panel1.ShadowDecoration.Depth = 8;
+            this.guna2Panel1.ShadowDecoration.Enabled = true;
             this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 15, 15);
-            this.guna2Panel1.Size = new System.Drawing.Size(540, 378);
+            this.guna2Panel1.Size = new System.Drawing.Size(540, 389);
             this.guna2Panel1.TabIndex = 0;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // btnEyeConfirm
             // 
@@ -109,6 +120,7 @@
             this.lblConfirmPassError.Size = new System.Drawing.Size(17, 19);
             this.lblConfirmPassError.TabIndex = 8;
             this.lblConfirmPassError.Text = "\" \"";
+            this.lblConfirmPassError.Visible = false;
             // 
             // lblNewPassError
             // 
@@ -120,6 +132,7 @@
             this.lblNewPassError.Size = new System.Drawing.Size(17, 19);
             this.lblNewPassError.TabIndex = 7;
             this.lblNewPassError.Text = "\" \"";
+            this.lblNewPassError.Visible = false;
             // 
             // guna2HtmlLabel4
             // 
@@ -227,19 +240,86 @@
             this.btnUpdateMyPassword.Text = "Update My Password";
             this.btnUpdateMyPassword.Click += new System.EventHandler(this.btnUpdateMyPassword_Click);
             // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.guna2ComboBox1.ItemHeight = 18;
+            this.guna2ComboBox1.Items.AddRange(new object[] {
+            "English",
+            "Arabic",
+            "Bangala",
+            "French",
+            "Russian",
+            "Spanish"});
+            this.guna2ComboBox1.Location = new System.Drawing.Point(63, 133);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.Size = new System.Drawing.Size(150, 24);
+            this.guna2ComboBox1.StartIndex = 1;
+            this.guna2ComboBox1.TabIndex = 13;
+            // 
+            // guna2HtmlLabel5
+            // 
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
+            this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.Red;
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(643, 212);
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(75, 52);
+            this.guna2HtmlLabel5.TabIndex = 16;
+            this.guna2HtmlLabel5.Text = "POS";
+            // 
+            // guna2HtmlLabel6
+            // 
+            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold);
+            this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(533, 152);
+            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(185, 67);
+            this.guna2HtmlLabel6.TabIndex = 15;
+            this.guna2HtmlLabel6.Text = "iCTLook";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBox2.Location = new System.Drawing.Point(584, 225);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(54, 39);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 14;
+            this.pictureBox2.TabStop = false;
+            // 
             // NewPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 583);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1028, 661);
+            this.Controls.Add(this.guna2HtmlLabel5);
+            this.Controls.Add(this.guna2HtmlLabel6);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.guna2ComboBox1);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NewPassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewPassword";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -258,5 +338,9 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lblConfirmPassError;
         private Guna.UI2.WinForms.Guna2ImageButton btnEyeNew;
         private Guna.UI2.WinForms.Guna2ImageButton btnEyeConfirm;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

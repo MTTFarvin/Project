@@ -33,6 +33,7 @@
             this.txtOtp1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnVerify = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTimer = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtOtp6 = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtOtp5 = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblResend = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -42,11 +43,9 @@
             this.txtOtp4 = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtOtp3 = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtOtp2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.iCTLook = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lblTimer = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.sqlConnection1 = new Microsoft.Data.SqlClient.SqlConnection();
             this.otpTimer = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel1.SuspendLayout();
@@ -85,7 +84,7 @@
             this.btnVerify.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnVerify.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerify.ForeColor = System.Drawing.Color.White;
-            this.btnVerify.Location = new System.Drawing.Point(166, 229);
+            this.btnVerify.Location = new System.Drawing.Point(166, 217);
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(137, 36);
             this.btnVerify.TabIndex = 1;
@@ -94,10 +93,10 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.White;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.White;
-            this.guna2Panel1.BorderRadius = 20;
-            this.guna2Panel1.BorderThickness = 2;
+            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.guna2Panel1.BorderRadius = 10;
+            this.guna2Panel1.BorderThickness = 1;
             this.guna2Panel1.Controls.Add(this.lblTimer);
             this.guna2Panel1.Controls.Add(this.txtOtp6);
             this.guna2Panel1.Controls.Add(this.txtOtp5);
@@ -110,13 +109,28 @@
             this.guna2Panel1.Controls.Add(this.txtOtp3);
             this.guna2Panel1.Controls.Add(this.txtOtp2);
             this.guna2Panel1.Controls.Add(this.txtOtp1);
-            this.guna2Panel1.Location = new System.Drawing.Point(415, 161);
+            this.guna2Panel1.FillColor = System.Drawing.Color.White;
+            this.guna2Panel1.Location = new System.Drawing.Point(435, 250);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.ShadowDecoration.BorderRadius = 20;
-            this.guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.Silver;
+            this.guna2Panel1.ShadowDecoration.BorderRadius = 10;
+            this.guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.LightGray;
+            this.guna2Panel1.ShadowDecoration.Depth = 10;
+            this.guna2Panel1.ShadowDecoration.Enabled = true;
             this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 15, 15);
             this.guna2Panel1.Size = new System.Drawing.Size(488, 335);
             this.guna2Panel1.TabIndex = 2;
+            // 
+            // lblTimer
+            // 
+            this.lblTimer.BackColor = System.Drawing.Color.Transparent;
+            this.lblTimer.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblTimer.Location = new System.Drawing.Point(83, 176);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(32, 17);
+            this.lblTimer.TabIndex = 8;
+            this.lblTimer.Text = "01:00";
+            this.lblTimer.Click += new System.EventHandler(this.lblTimer_Click);
             // 
             // txtOtp6
             // 
@@ -263,36 +277,12 @@
             this.txtOtp2.Size = new System.Drawing.Size(43, 36);
             this.txtOtp2.TabIndex = 1;
             // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.guna2ComboBox1.ItemHeight = 18;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
-            "English",
-            "Arabic",
-            "Bangala",
-            "French",
-            "Russian",
-            "Spanish"});
-            this.guna2ComboBox1.Location = new System.Drawing.Point(24, 25);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(150, 24);
-            this.guna2ComboBox1.StartIndex = 1;
-            this.guna2ComboBox1.TabIndex = 6;
-            // 
             // guna2HtmlLabel5
             // 
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.Red;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(766, 103);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(763, 118);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             this.guna2HtmlLabel5.Size = new System.Drawing.Size(75, 52);
             this.guna2HtmlLabel5.TabIndex = 9;
@@ -303,7 +293,7 @@
             this.iCTLook.BackColor = System.Drawing.Color.Transparent;
             this.iCTLook.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold);
             this.iCTLook.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.iCTLook.Location = new System.Drawing.Point(656, 43);
+            this.iCTLook.Location = new System.Drawing.Point(653, 58);
             this.iCTLook.Name = "iCTLook";
             this.iCTLook.Size = new System.Drawing.Size(185, 67);
             this.iCTLook.TabIndex = 8;
@@ -314,25 +304,13 @@
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox2.Location = new System.Drawing.Point(707, 116);
+            this.pictureBox2.Location = new System.Drawing.Point(704, 131);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(54, 39);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
-            // 
-            // lblTimer
-            // 
-            this.lblTimer.BackColor = System.Drawing.Color.Transparent;
-            this.lblTimer.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblTimer.Location = new System.Drawing.Point(83, 176);
-            this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(32, 17);
-            this.lblTimer.TabIndex = 8;
-            this.lblTimer.Text = "01:00";
-            this.lblTimer.Click += new System.EventHandler(this.lblTimer_Click);
             // 
             // sqlConnection1
             // 
@@ -348,14 +326,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(907, 556);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1028, 661);
             this.Controls.Add(this.guna2HtmlLabel5);
             this.Controls.Add(this.iCTLook);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.guna2ComboBox1);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "OtpForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.OtpForm_Load);
@@ -381,7 +360,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2TextBox txtOtp6;
         private Guna.UI2.WinForms.Guna2TextBox txtOtp5;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel iCTLook;
         private System.Windows.Forms.PictureBox pictureBox2;

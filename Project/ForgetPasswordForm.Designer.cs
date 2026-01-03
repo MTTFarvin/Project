@@ -41,7 +41,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -51,9 +50,9 @@
             // 
             resources.ApplyResources(this.Panel1, "Panel1");
             this.Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.Panel1.BorderColor = System.Drawing.Color.White;
-            this.Panel1.BorderRadius = 15;
-            this.Panel1.BorderThickness = 2;
+            this.Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.Panel1.BorderRadius = 10;
+            this.Panel1.BorderThickness = 1;
             this.Panel1.Controls.Add(this.pictureBox1);
             this.Panel1.Controls.Add(this.guna2Btnconfirm);
             this.Panel1.Controls.Add(this.txtEmail);
@@ -62,8 +61,9 @@
             this.Panel1.Controls.Add(this.guna2HtmlLabel1);
             this.Panel1.FillColor = System.Drawing.Color.White;
             this.Panel1.Name = "Panel1";
-            this.Panel1.ShadowDecoration.BorderRadius = 20;
+            this.Panel1.ShadowDecoration.BorderRadius = 10;
             this.Panel1.ShadowDecoration.Color = System.Drawing.SystemColors.ControlLight;
+            this.Panel1.ShadowDecoration.Depth = 20;
             this.Panel1.ShadowDecoration.Enabled = true;
             this.Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 15, 15);
             this.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
@@ -149,32 +149,11 @@
             this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.Red;
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.guna2ComboBox1, "guna2ComboBox1");
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.guna2ComboBox1.Items.AddRange(new object[] {
-            resources.GetString("guna2ComboBox1.Items"),
-            resources.GetString("guna2ComboBox1.Items1"),
-            resources.GetString("guna2ComboBox1.Items2"),
-            resources.GetString("guna2ComboBox1.Items3"),
-            resources.GetString("guna2ComboBox1.Items4"),
-            resources.GetString("guna2ComboBox1.Items5")});
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.StartIndex = 1;
-            // 
             // ForgetPasswordForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.guna2ComboBox1);
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.guna2HtmlLabel5);
             this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.pictureBox2);
@@ -204,6 +183,5 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
     }
 }
