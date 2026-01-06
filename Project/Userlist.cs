@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,31 @@ namespace Project
         {
             InitializeComponent();
         }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Userlist_Load(object sender, EventArgs e)
+        {
+            
+        }
+      
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
-}
+    }
+
+

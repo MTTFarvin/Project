@@ -85,38 +85,10 @@ namespace Project
             }
         }
 
-        // LOGIN BUTTON
+        
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Data Source=COMPUTERADMINIS;Initial Catalog=SYTEM_POS;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
-
-            SqlCommand cmd = new SqlCommand(
-                "SELECT * FROM Login WHERE Username = @username AND Password = @password", con);
-
-            cmd.Parameters.AddWithValue("@username", txtUsername.Text);
-            cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-
-            if (dt.Rows.Count > 0)
-            {
-                this.Hide();
-                Form3 dsa = new Form3();
-                dsa.Show();
             }
-            else
-            {
-                MessageBox.Show("Wrong Username OR Password", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                txtUsername.Clear();
-                txtPassword.Clear();
-                txtUsername.Focus();
-            }
-            }
-        
 
         // CLEAR & CLOSE BUTTON
         private void label4_Click(object sender, EventArgs e)
@@ -163,6 +135,39 @@ namespace Project
         {
 
         }
-    }
+        // LOGIN BUTTON
+        private void btnSignin_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection("Data Source=COMPUTERADMINIS;Initial Catalog=SYTEM_POS;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
+
+            SqlCommand cmd = new SqlCommand(
+                "SELECT * FROM Login WHERE Username = @username AND Password = @password", con);
+
+            cmd.Parameters.AddWithValue("@username", txtUsername.Text);
+            cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                this.Hide();
+                Form3 dsa = new Form3();
+                dsa.Show();
+            }
+            else
+            {
+                MessageBox.Show("Wrong Username OR Password", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                txtUsername.Clear();
+                txtPassword.Clear();
+                txtUsername.Focus();
+            }
+        }
+
+    
+}
 }
 
